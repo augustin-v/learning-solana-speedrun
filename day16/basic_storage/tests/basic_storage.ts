@@ -15,7 +15,10 @@ describe("basic_storage", () => {
 
     console.log("the storage account address is: ",myStorage.toBase58());
 
+    await program.methods.printX().accounts({myStorage: myStorage}).rpc();
     // Add your test here.
-    await program.methods.initialize().rpc();
+    await program.methods.set(new anchor.BN(90)).rpc();
+    await program.methods.printX().accounts({myStorage: myStorage}).rpc();
   });
+
 });
